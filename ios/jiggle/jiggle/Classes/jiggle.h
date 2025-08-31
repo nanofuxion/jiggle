@@ -1,14 +1,9 @@
-// Public header for jiggle
+#ifndef jiggle_h
+#define jiggle_h
+
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
+// Umbrella header for the jiggle pod
+#import "JiggleModule-Bridging-Header.h"
 
-@interface Jiggle : NSObject
-
-// Vibrate for duration in milliseconds
-- (void)vibrate:(NSNumber *)duration;
-
-// Simple test method
-@end
-
-NS_ASSUME_NONNULL_END
+#endif /* jiggle_h */

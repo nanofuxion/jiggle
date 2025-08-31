@@ -3,14 +3,33 @@ import UIKit
 import CoreHaptics
 import AudioToolbox
 
-@objc(JiggleModule)
-public class JiggleModule: NSObject {
+@objcMembers // Add this attribute
+public final class JiggleModule: NSObject, LynxModule {
+    // The rest of your code remains the same...
+
+    @objc public static var name: String {
+        return "JiggleModule"
+    }
+
+    @objc public static var methodLookup: [String: String] {
+        return [
+            "vibrate": NSStringFromSelector(#selector(vibrate(_:)))
+        ]
+    }
+    
   private var engine: CHHapticEngine?
 
-  public override init() {
-    super.init()
-    prepareEngine()
-  }
+    // Add this required initializer
+    @objc public init(param: Any) {
+        super.init()
+        prepareEngine()
+    }
+
+    @objc public override init() {
+        super.init()
+        prepareEngine()
+    }
+
 
   private func prepareEngine() {
     guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
@@ -23,8 +42,7 @@ public class JiggleModule: NSObject {
   }
 
   /// Vibrate for a duration in milliseconds (matches Android behavior)
-  @objc
-  public func vibrate(_ duration: NSNumber) {
+  @objc public func vibrate(_ duration: NSNumber) {
     let ms = duration.doubleValue
     let seconds = max(0.01, ms / 1000.0)
 

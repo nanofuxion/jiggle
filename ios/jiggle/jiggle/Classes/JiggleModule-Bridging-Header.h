@@ -1,2 +1,2 @@
 // Bridging header for Jiggle
-#import <Foundation/Foundation.h>
+#import <Lynx/LynxModule.h>
