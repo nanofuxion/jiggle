@@ -34,13 +34,15 @@ report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
 .DS_Store
 
 # native 
-/gradle
-/ios
-/android
-src/android/gradle
-packages/*/android/.gradle
-packages/*/android/build
-packages/*/android/.settings
+*.iml
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/captures
+.externalNativeBuild
 
 # temporarily ignore these files
 /base
